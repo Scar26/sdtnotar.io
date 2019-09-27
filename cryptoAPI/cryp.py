@@ -6,7 +6,8 @@ app = Flask(__name__)
 
 def hello_world():
     f = request.form['fn']
+    print(f)  
     return f'Sup {f}'
 
 if __name__ == '__main__':
-    app.run(debug = True)
+    app.run()

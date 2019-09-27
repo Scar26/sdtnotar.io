@@ -1,0 +1,26 @@
+<html>
+<head>
+<body>
+    <input type = "text" id = "bid" label = "buyer public key" />
+    <input type = "text" id = "sid" label = "seller public key" />
+    <input type = "submit" id = "sub">submit</button>
+    <p id = "debug"></p>
+    <script>
+    var btn = document.getElementById('sub');
+    var bid = document.getElementById('bid');
+    var sid = document.getElementById('sid');
+
+    btn.addEventListener( 'click', function(){
+        var req = new XMLHttpRequest;
+        req.onreadystatechange = function(){
+            if(this.readyState == 4 && this.status== 400){
+                document.getElementById('debug').innerHTML =  this.responseText;
+            }
+        };
+        req.open("POST",'http://127.0.0.1:4269/sendkeys',true);
+        req.send(`fn=${bid}`);
+    });
+    </script>
+</body>
+</head>
+</html>
