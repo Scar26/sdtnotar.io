@@ -1,26 +1,34 @@
 <html>
 <head>
+	<script src="/socket.io/socket.io.js"></script>
+	<title>Admin panel</title>
+</head>
 <body>
     <input type = "text" id = "bid" label = "buyer public key" />
     <input type = "text" id = "sid" label = "seller public key" />
-    <input type = "submit" id = "sub">submit</button>
+    <input type = "text" id = "file" label = "upload file" />
+    <input type = "submit" id = "sub">
     <p id = "debug"></p>
-    <script>
+<script>
+    var socket = io.connect();		
     var btn = document.getElementById('sub');
-    var bid = document.getElementById('bid');
-    var sid = document.getElementById('sid');
+    var b = document.getElementById('bid');
+    var s = document.getElementById('sid');
+    var s_dt = document.getElementById('file');
 
-    btn.addEventListener( 'click', function(){
-        var req = new XMLHttpRequest;
-        req.onreadystatechange = function(){
-            if(this.readyState == 4 && this.status== 400){
-                document.getElementById('debug').innerHTML =  this.responseText;
-            }
-        };
-        req.open("POST",'http://127.0.0.1:4269/sendkeys',true);
-        req.send(`fn=${bid}`);
+	// sbtn.addEventListener('click',function(){
+	// 	socket.emit('send message', msgbox.value);
+	// 	msgbox.value =  "";
+    // });
+
+	// socket.on('new user',function(number){
+	// 	document.querySelector('#users').innerHTML= number + " users connected";
+    // });
+    
+    btn.addEventListener('click',function(){
+        socket.emit('sub',socket.emit('sub',JSON.stringify({ bid : b.value, sid : s.value, sdt : s_dt.value })))
     });
-    </script>
+
+</script>
 </body>
-</head>
 </html>

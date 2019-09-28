@@ -1,0 +1,25 @@
+<html>
+<head>
+<body>
+    <input type = "text" id = "bid" label = "buyer public key" />
+    <input type = "text" id = "sid" label = "seller public key" />
+    <input type = "text" id = "file" label = "upload file" />
+    <input type = "submit" id = "sub">
+    <p id = "debug"></p>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+    socket = io.connect();  
+    var btn = document.getElementById('sub');
+    var b_id = document.getElementById('bid');
+    var s_id = document.getElementById('sid');
+    var s_dt = document.getElementById('file');
+    btn.onclick = function(){
+        socket.emit('sub',JSON.stringify({ bid : b_id.value, sid : s_id.value, sdt : s_dt.value }))
+    }
+    socket.on('subbed',function(data){
+        document.getElementById("debug").innerHTML = data;
+    })
+    </script>
+</body>
+</head>
+</html>
