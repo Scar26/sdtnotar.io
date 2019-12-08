@@ -6,7 +6,6 @@ contract Notar{
     uint32 id;
     string _hash;
     uint256 nonce;
-    uint amt;
   }
 
   mapping(uint => Ring) private rings;
@@ -25,7 +24,7 @@ contract Notar{
   }
 
   function addRing(string memory sig,uint256 amt) onlyOwner private{
-    rings[ringcount] = Ring(ringcount, sig;
+    rings[ringcount] = Ring(ringcount, sig);
     ringcount++;
   }
 

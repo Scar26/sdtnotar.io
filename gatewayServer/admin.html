@@ -15,15 +15,6 @@
     var b = document.getElementById('bid');
     var s = document.getElementById('sid');
     var s_dt = document.getElementById('file');
-
-	// sbtn.addEventListener('click',function(){
-	// 	socket.emit('send message', msgbox.value);
-	// 	msgbox.value =  "";
-    // });
-
-	// socket.on('new user',function(number){
-	// 	document.querySelector('#users').innerHTML= number + " users connected";
-    // });
     
     btn.addEventListener('click',function(){
         socket.emit('sub',socket.emit('sub',JSON.stringify({ bid : b.value, sid : s.value, sdt : s_dt.value })))

@@ -16,7 +16,7 @@ app.set('view engine', 'hbs');
 app.use(parser.urlencoded({ extended: true}));
 console.log("Server listening on port 4269...");
 
-var companyPublicKey = '';
+var companyPublicKey = '6hJ5Zml71B/i358I6ucnDRRq0cnMtu/cetVQJm4hb4lWjrUU6OD5R5I7yDmvRm4RoCrnB+ar4st9rBEQHefkP1SeUKoJkVxqfgcry95MkvbDh92FBP8OPwRSw2UqrW1g ';
 var defaultAccount = '0x5015A1459Fb76F506a4f0FaF6f740D709664B203';
 var contract_addr = '0x235b67b82a0b389E6D042aFc1595b357c0A66753';
 if (typeof web3 !== 'undefined') { web3 = new Web3(web3.currentProvider); }
